@@ -1,0 +1,53 @@
+#include<iostream>
+
+using namespace std;
+
+class rev
+{
+    private:
+        int* arr;
+        int num;
+    public:
+        void getdata(int n)
+        {
+            num = n;
+        }
+        void reversearray()
+        {
+            arr = new int(num);
+            for(int i = 0;i<num;i++)
+            {
+                cin>>arr[i];
+            }
+            int end=num-1;
+            int start=0;
+            int temp;
+            while(start<end )
+            {
+                temp = arr[start];
+                arr[start] = arr[end];
+                arr[end]=temp;
+                start++;
+                end--;
+            }
+        }
+        void display()
+        {
+            for(int i = 0 ;i<num;i++)
+            {
+                cout<<arr[i]<<"\t";
+            }
+        }
+};
+int main()
+{
+    int no;
+    cout<<"Enter size of array to create :-";
+    cin>>no;
+    rev r1;
+    r1.getdata(no);
+    r1.reversearray();
+    r1.display();
+
+    return 0;
+}
