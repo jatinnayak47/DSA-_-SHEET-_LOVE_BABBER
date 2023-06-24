@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+class min_max
+{
+    private:
+        int* arr;
+        int min,max,size;
+    public:
+        void getdata(int num)
+        {
+            size = num;
+            arr = new int(size);
+            for(int i = 0;i<size;i++)
+            {
+                cin>>arr[i];
+            }
+        }
+        void min_finder()
+        {
+            min = arr[0];
+            for(int i=0;i<size;i++)
+            {
+               if(min<arr[i])
+               {
+                min = min;
+               } 
+               else
+               {
+                min = arr[i];
+               }
+            }
+        }
+        void max_finder()
+        {
+            max = arr[0];
+            for(int i=0;i<size;i++)
+            {
+               if(max>arr[i])
+               {
+                max = max;
+               } 
+               else
+               {
+                max = arr[i];
+               }
+            }
+        }
+        void display()
+        {
+            cout<<"Min element of array is :- "<<min<<"\n";
+            cout<<"Max element of array is :- "<<max<<"\n";
+        }
+};
+
+int main()
+{
+    int num;
+    cout<<"Enter the length of array you want to create :-";
+    cin>>num;
+    min_max M1;
+    M1.getdata(num);
+    M1.min_finder();
+    M1.max_finder();
+    M1.display();
+}
