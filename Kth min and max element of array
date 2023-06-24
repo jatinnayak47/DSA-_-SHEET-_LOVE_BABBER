@@ -1,0 +1,75 @@
+#include<iostream>
+
+using namespace std;
+
+class kth_element_array
+{
+    private:
+        int* arr;
+        int size;
+        int kth_min,kth_max;
+    public:
+        void getdata(int num)
+        {
+            size = num;
+            arr = new int(size);
+            cout<<"Enter the element of array:-\n";
+            for(int i = 0;i<size;i++)
+            {
+                cin>>arr[i];
+            }
+        }
+        void sorting_array()
+        {
+            int temp;
+            for(int i=0;i<(size-1);i++)
+            {
+                for(int j = 0;j<(size-i-1);j++)
+                {
+                    if(arr[j+1]<arr[j])
+                    {
+                        temp = arr[j];
+                       arr[j] = arr[j+1];
+                       arr[j+1] = temp;
+                    }
+                }
+            }
+        }
+        void display()
+        {
+            int temp1,temp2;
+            cout<<endl;
+            cout<<"Enter the position :-"<<endl;
+            cin>>kth_min;
+            cin>>kth_max;
+            temp1=kth_min;
+            temp2=kth_max;
+            if(kth_max  <= 0 && kth_min <= 0)
+            {
+                cout<<"Invalid Input!"<<endl;
+                return;
+            }
+            else
+            {
+                cout<<temp1<<"th min element of array:-";
+                cout<<arr[kth_min-1]<<endl;
+                cout<<temp2<<"th max element of array:-";
+                cout<<arr[size-kth_max]<<endl;
+            }
+        }
+
+};
+
+int main()
+{
+    int num;
+    kth_element_array E1;
+    cout<<"Enter the length of array to create :-\n";
+    cin>>num;
+    E1.getdata(num);
+    E1.sorting_array();
+    E1.display();
+
+    return 0;
+    
+}
