@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+class LargestSumSubarray
+{
+    private:
+        int* arr;
+        int size;
+        int maxsum;
+        int sum;
+    public:
+        void getdata(int num)
+        {
+            size = num;
+            arr = new int(size);
+            cout<<"Enter the element in array :-"<<endl;
+            for(int i=0;i<size;i++)
+            {
+                cin>>arr[i];
+            }
+        }
+
+        void largestsum()
+        {
+            sum = 0;
+            maxsum = arr[0];
+            for(int i=0;i<size;i++)
+            {
+                sum = sum + arr[i];
+                maxsum=max(maxsum,sum);
+                if(sum < 0)
+                {
+                    sum = 0;
+                }
+            }
+            cout<<"\nLargest Sum Of Contiguous Subarray :-"<<maxsum<<endl;
+
+        }
+
+};
+
+int main()
+{
+    int num;
+    cout<<"\nEnter the length of array :-";
+    cin>>num;
+    LargestSumSubarray L1;
+    L1.getdata(num);
+    L1.largestsum();
+
+    return 0;
+}
